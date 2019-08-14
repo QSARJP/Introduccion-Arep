@@ -7,28 +7,28 @@ public class Nodo {
 
 
     private Integer data;
-    private Integer nextNode;
-    private Integer nodo;
+    private Nodo nextNode;
+    private Integer idNodo;
 
-    public Nodo(Integer data,Integer nodo, Integer nextNode) {
+    public Nodo(Integer data, Integer nodo, Nodo nextNode) {
         this.data = data;
-        this.nextNode = nextNode;
-        this.nodo = nodo;
+        this.setNextNode(nextNode);
+        this.setIdNodo(nodo);
     }
 
-    public Integer getNodo() {
-        return nodo;
+    public Integer getIdNodo() {
+        return idNodo;
     }
 
-    public void setNodo(Integer nodo) {
-        this.nodo = nodo;
+    public void setIdNodo(Integer idNodo) {
+        this.idNodo = idNodo;
     }
 
-    public Integer getNextNode() {
+    public Nodo getNextNode() {
         return nextNode;
     }
 
-    public void setNextNode(Integer nextNode) {
+    public void setNextNode(Nodo nextNode) {
         this.nextNode = nextNode;
     }
 

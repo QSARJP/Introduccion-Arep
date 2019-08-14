@@ -1,16 +1,15 @@
 package edu.escuelaing.arem.introduccion.entities;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class LinkedList {
 
     private Head head;
-    private List<Nodo> nodes;
+    
 
     public LinkedList() {
         this.setHead(null);
-        this.nodes = new ArrayList<Nodo>();
+        
     }
 
     public Head getHead() {
@@ -21,41 +20,41 @@ public class LinkedList {
         this.head = head;
     }
 
-    public List<Nodo> getNodes() {
-        return nodes;
-    }
 
-    public void setNodes(List<Nodo> nodes) {
-        this.nodes = nodes;
-    }
 
     
     public void addNode(Nodo nodo){
         Nodo ultimo = null;
         if (head.getUltimoNodo() != null){
-            ultimo = head.getUltimoNodo();    
+            ultimo = head.getUltimoNodo();
+            ultimo.setNextNode(nodo);    
         }else{
             ultimo = nodo;
         }
-        ultimo.setNextNode(nodo.getNodo());
         nodo.setNextNode(null); 
-        if (!nodes.isEmpty()){
-            nodo.setNodo(nodes.size());
-        }else{
-            nodo.setNodo(1);
-        }
-        nodes.add(nodo);
+        head.setUltimoNodo(nodo);
         
     }
 
-    public void removeNode (Integer numNode){
-        Nodo ultimo = nodes.get(numNode-1);
-        if (nodes.size() == numNode){
-            ultimo.setNextNode(null);
-        }else{
-            ultimo.setNextNode(numNode+1);
+    public void removeNode (Nodo nodo){
+        Nodo nodop = head.getPrimerNodo();
+        while (nodop.getIdNodo() != nodo.getIdNodo() && nodop.getNextNode() != null){
+            Nodo nodo2 = nodop.getNextNode();
+            if (nodo2.equals(nodo)){
+                nodop.setNextNode(nodo2.getNextNode());
+                nodo2.setNextNode(null);
+            }
+            nodop = nodo2;
         }
-        nodes.remove(nodes.get(numNode));
     }
+
+    public Nodo nextNode (Nodo nodo){
+        return nodo.getNextNode();
+    }
+
+    public Boolean isEmpty(){
+        return (head.getPrimerNodo()== null && head.getUltimoNodo()==null);
+    }
+
 
 }
