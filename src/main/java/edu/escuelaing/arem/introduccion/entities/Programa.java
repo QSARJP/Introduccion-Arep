@@ -23,7 +23,7 @@ public class Programa {
         int num = 0;
         Nodo primario = null ;
         Nodo secundario = null ;
-        Head head;
+        Head head = null;
         try {
             reader = new BufferedReader(new FileReader(file));
             String text = null;
@@ -41,6 +41,8 @@ public class Programa {
                 list.addNode(primario);
                 
             }
+            head.setUltimoNodo(primario);
+            
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
