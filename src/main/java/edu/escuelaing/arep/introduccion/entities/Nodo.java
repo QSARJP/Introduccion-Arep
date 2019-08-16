@@ -1,16 +1,22 @@
-package edu.escuelaing.arem.introduccion.entities;
+package edu.escuelaing.arep.introduccion.entities;
 
 
-
+/**
+ * clase Nodo, es la clase mas pequeña del LinkedList y tiene como objetivo guardar los datos del nodo y la informacion del proximo nodo
+ *
+ * @author Ospina
+ * 
+ * @version (a version 15/8/19)
+ */
 
 public class Nodo {
 
 
-    private Integer data;
+    private float data;
     private Nodo nextNode;
     private Integer idNodo;
 
-    public Nodo(Integer data, Integer nodo, Nodo nextNode) {
+    public Nodo(float data, Integer nodo, Nodo nextNode) {
         this.data = data;
         this.setNextNode(nextNode);
         this.setIdNodo(nodo);
@@ -32,13 +38,21 @@ public class Nodo {
         this.nextNode = nextNode;
     }
 
-    public Integer getData() {
+    public float getData() {
         return data;
     }
 
     public void setData(Integer data) {
         this.data = data;
     }
+
+    /**
+     * poder mostrar los datos de mejor manera 
+     */
+    public void displayLink(){
+		
+		System.out.println("["+idNodo+", "+data+"]");
+	}
 
 
 }

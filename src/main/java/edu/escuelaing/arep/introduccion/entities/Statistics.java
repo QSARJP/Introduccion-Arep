@@ -1,14 +1,25 @@
-package edu.escuelaing.arem.introduccion.entities;
+package edu.escuelaing.arep.introduccion.entities;
 
-//import java.util.ArrayList;
+/**
+ * clase encargada de tener todas las estadisticas necesarias para un conjunto de datos
+ *
+ * @author Ospina
+ * 
+ * @version (a version 15/8/19)
+ */
 
 public class Statistics {
     
     private LinkedList lista;
-    private int promedio;
+    private float promedio;
     private int numeroDatos;
-    private int resta;
+    private float resta;
     private float desviacion;
+
+    /**
+     * Al momento de crear la clase esta pasa a ejecutar todas las estadisticas que se tienen.
+     * @param lista LinkedList
+     */
     
     public Statistics (LinkedList lista){
         this.lista = lista;
@@ -17,12 +28,11 @@ public class Statistics {
         this.desviacion = desviacion();
         
     }
-    
-    
-    private int promedio (){
-        int total = 0;
+
+    private float promedio (){
+        float total = 0;
         int num = 0;
-        int pro = 0;
+        float pro = 0;
         if(!lista.isEmpty()){
            Head head = lista.getHead();
            Nodo nodoActual  = head.getPrimerNodo();
@@ -38,13 +48,13 @@ public class Statistics {
     }
     
     
-    private int resta () {
-        int total = 0;
+    private float resta () {
+        float total = 0;
         if(!lista.isEmpty()){
            Head head = lista.getHead();
            Nodo nodoActual  = head.getPrimerNodo();
            while (!(nodoActual == null)){
-               total += (int) Math.pow(nodoActual.getData() - getPromedio(),2);
+               total += (float) Math.pow(nodoActual.getData() - getPromedio(),2);
                nodoActual = nodoActual.getNextNode();
            }
         }
@@ -53,10 +63,10 @@ public class Statistics {
     
     
     private float desviacion(){
-        return (float) Math.sqrt(getResta()/getNumeroDatos());
+        return (float) Math.sqrt(getResta()/(getNumeroDatos()-1));
     }
     
-    public int getPromedio(){
+    public float getPromedio(){
         return this.promedio;
     }
     
@@ -64,7 +74,11 @@ public class Statistics {
         return this.numeroDatos;
     }
     
-    public int getResta(){
+    public float getResta(){
         return this.resta;
+    }
+
+    public float getDesviacion(){
+        return this.desviacion;
     }
 }
