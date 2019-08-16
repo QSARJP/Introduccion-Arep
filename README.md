@@ -8,10 +8,10 @@
 ## Juan Pablo Ospina Henao
 
 
-# Descripción del producto.
+# Descripción del laboratorio
 ### Descripción 
-Este laboratorio tiene como fin, recordat el manejo de mvn y de git en un problema de estadistica que requeire la 
-lectura de datos de un archivo y su almacenaje con Linked List realizada por el estudiante.
+Este laboratorio tiene como fin, recordar el manejo de mvn y de git en un problema de estadística 
+que requiere la lectura de datos de un archivo y su almacenaje con Linked List realizada por el estudiante.
 
 
 # Diseño
